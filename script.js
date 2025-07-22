@@ -1,4 +1,4 @@
-// Loader
+// Page loader
 window.addEventListener("load", () => {
   document.getElementById("loader-wrapper").style.opacity = "0";
   setTimeout(() => {
@@ -6,59 +6,82 @@ window.addEventListener("load", () => {
   }, 500);
 });
 
-// Language Switch
-document.getElementById("langSwitch").addEventListener("change", function () {
+// Language switch
+document.getElementById('langSwitch').addEventListener('change', function () {
   const lang = this.value;
-  document.querySelectorAll("[data-fr]").forEach(el => {
+  document.querySelectorAll('[data-fr]').forEach(el => {
     el.textContent = el.getAttribute(`data-${lang}`);
   });
 
   const typedText = document.getElementById("typedText");
+  typedText.style.width = "0";
+  void typedText.offsetWidth;
   typedText.textContent = typedText.getAttribute(`data-${lang}`);
-
-  if (window.innerWidth >= 768) {
-    typedText.style.animation = "typing 3s steps(40, end) forwards, blink 0.7s infinite";
-  }
+  typedText.style.animation = "typing 3s steps(40, end) forwards, blink 0.7s infinite";
 });
 
-// Fade-in Scroll
-const faders = document.querySelectorAll(".fade-in");
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
 function revealOnScroll() {
   const triggerBottom = window.innerHeight * 0.85;
   faders.forEach(el => {
     const boxTop = el.getBoundingClientRect().top;
     if (boxTop < triggerBottom) {
-      el.classList.add("visible");
+      el.classList.add('visible');
     }
   });
 }
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
 // Image Modal
-const modal = document.getElementById("imgModal");
-const modalImg = document.getElementById("modalImg");
-document.querySelectorAll(".gallery-img").forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "block";
+const modal = document.getElementById('imgModal');
+const modalImg = document.getElementById('modalImg');
+const closeBtn = document.querySelector('.close');
+
+document.querySelectorAll('.gallery-img').forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display = 'block';
     modalImg.src = img.src;
   });
 });
-document.querySelector(".close").onclick = () => modal.style.display = "none";
-window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-};
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+window.addEventListener('click', e => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
 
-// Scroll to Top
+// Scroll-to-top button
 const topBtn = document.getElementById("topBtn");
 window.onscroll = () => {
-  topBtn.style.display = (window.scrollY > 300) ? "block" : "none";
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
 };
-topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+topBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
-// Dark Mode Toggle
-document.getElementById("modeToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  const icon = document.getElementById("modeToggle");
-  icon.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+// Dark/Light Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+function setTheme(mode) {
+  if (mode === "dark") {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+  }
+  localStorage.setItem("theme", mode);
+}
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  setTheme(savedTheme);
+});
+themeToggle.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("dark-mode");
+  setTheme(isDark ? "light" : "dark");
 });
