@@ -125,15 +125,26 @@ select, #themeToggle {
 }
 
 .typewriter-text {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
   color: #c2185b;
-  white-space: nowrap;
-  overflow: hidden;
   border-right: 2px solid #c2185b;
-  width: 0;
+  overflow: hidden;
+  display: inline-block;
   animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
   margin-bottom: 1rem;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* Responsive adjustment */
+@media (max-width: 600px) {
+  .typewriter-text {
+    font-size: 1.5rem;
+    white-space: normal;
+    animation: none;
+    border-right: none;
+  }
 }
 
 @keyframes typing {
