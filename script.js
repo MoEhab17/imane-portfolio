@@ -85,3 +85,31 @@ themeToggle.addEventListener("click", () => {
   const isDark = document.body.classList.contains("dark-mode");
   setTheme(isDark ? "light" : "dark");
 });
+
+//----filter gallery images----
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryImages = document.querySelectorAll('.gallery-img');
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelector('.filter-btn.active').classList.remove('active');
+    btn.classList.add('active');
+
+    const filter = btn.getAttribute('data-filter');
+    galleryImages.forEach(img => {
+      img.style.display = (filter === 'all' || img.classList.contains(filter)) ? 'block' : 'none';
+    });
+  });
+});
+
+// === Language Switch for Filter Buttons ===
+const langSwitch = document.getElementById('langSwitch');
+
+if (langSwitch) {
+  langSwitch.addEventListener('change', () => {
+    const selectedLang = langSwitch.value;
+    document.querySelectorAll('[data-fr], [data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${selectedLang}`);
+    });
+  });
+}
