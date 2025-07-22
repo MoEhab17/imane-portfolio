@@ -365,3 +365,29 @@ body.dark-mode #themeToggle {
     animation: none;
   }
 }
+
+/* === Gallery Filters === */
+
+.gallery-filters {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  background-color: #f8cdd8;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: #d63384;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #d63384;
+  color: white;
+}
+
