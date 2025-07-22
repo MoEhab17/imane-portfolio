@@ -305,11 +305,11 @@ body.dark-mode footer {
   background-color: #111;
   color: #999;
 }
+
 body {
   font-size: 16px;
   padding: 1rem;
 }
-
 
 body.dark-mode select,
 body.dark-mode #themeToggle {
@@ -318,6 +318,7 @@ body.dark-mode #themeToggle {
   border-color: #444;
 }
 
+/* ====== Responsive Fixes ====== */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
@@ -354,10 +355,13 @@ body.dark-mode #themeToggle {
 @media screen and (max-width: 768px) {
   .typewriter-text {
     font-size: 1.5rem;
-    white-space: normal;
+    white-space: normal !important;
     overflow-wrap: break-word;
-    width: 90%;
+    width: 100% !important;
+    max-width: 95%;
     text-align: center;
     margin: 0 auto;
+    border-right: none;
+    animation: none;
   }
 }
