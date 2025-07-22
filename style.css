@@ -350,3 +350,14 @@ body.dark-mode #themeToggle {
     height: 28px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .typewriter-text {
+    font-size: 1.5rem;
+    white-space: normal;
+    overflow-wrap: break-word;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
