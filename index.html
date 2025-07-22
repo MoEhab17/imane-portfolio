@@ -3,93 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Imane Zoubair | Portfolio</title>
+  <title>Imane Zoubair | Artiste Peintre</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Loader -->
+  <!-- Page Loader -->
   <div id="loader-wrapper">
     <div id="loader"></div>
   </div>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="imane.jpg" alt="Imane" class="logo-img" />
-      <span>Imane Zoubair</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about" data-en="About" data-fr="À propos">À propos</a></li>
-      <li><a href="#gallery" data-en="Gallery" data-fr="Galerie">Galerie</a></li>
-      <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
-      <li>
-        <select id="langSwitch">
-          <option value="fr">Français</option>
-          <option value="en">English</option>
-        </select>
-      </li>
-      <li>
-        <button id="modeToggle" title="Toggle Light/Dark Mode">🌙</button>
-      </li>
-    </ul>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">
+        <img src="logo.jpg" alt="Logo" class="logo-img" />
+        Imane Zoubair
+      </h1>
+      <ul class="nav-links">
+        <li><a href="#accueil" data-fr="Accueil" data-en="Home">Accueil</a></li>
+        <li><a href="#apropos" data-fr="À propos" data-en="About">À propos</a></li>
+        <li><a href="#galerie" data-fr="Galerie" data-en="Gallery">Galerie</a></li>
+        <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+        <li>
+          <select id="langSwitch">
+            <option value="fr">FR</option>
+            <option value="en">EN</option>
+          </select>
+        </li>
+        <li>
+          <button id="themeToggle" title="Changer le thème">🌓</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Hero -->
-  <header class="hero">
+  <!-- Hero Section -->
+  <section id="accueil" class="hero">
     <h2 id="typedText" class="typewriter-text"
         data-fr="Bienvenue dans mon monde artistique"
         data-en="Welcome to my artistic world">
       Bienvenue dans mon monde artistique
     </h2>
-    <p data-fr="Découvrez mes œuvres et projets uniques."
-       data-en="Explore my unique artworks and projects.">
-      Découvrez mes œuvres et projets uniques.
-    </p>
-  </header>
-
-  <!-- About Section -->
-  <section id="about" class="about fade-in">
-    <h3 data-fr="À propos de moi" data-en="About Me">À propos de moi</h3>
-    <p data-fr="Je suis une artiste passionnée par les couleurs et les émotions."
-       data-en="I'm an artist passionate about colors and emotions.">
-       Je suis une artiste passionnée par les couleurs et les émotions.
+    <p data-fr="Je suis Imane Zoubair, artiste passionnée par l’expression visuelle et la créativité."
+       data-en="I am Imane Zoubair, an artist passionate about visual expression and creativity.">
+      Je suis Imane Zoubair, artiste passionnée par l’expression visuelle et la créativité.
     </p>
   </section>
 
-  <!-- Gallery -->
-  <section id="gallery" class="gallery fade-in">
+  <!-- About Section -->
+  <section id="apropos" class="about fade-in">
+    <h3 data-fr="À propos" data-en="About">À propos</h3>
+    <p data-fr="Depuis mon enfance, je m’exprime à travers les couleurs, les formes et les textures."
+       data-en="Since childhood, I have expressed myself through colors, shapes, and textures.">
+      Depuis mon enfance, je m’exprime à travers les couleurs, les formes et les textures.
+    </p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="galerie" class="gallery fade-in">
     <h3 data-fr="Galerie" data-en="Gallery">Galerie</h3>
     <div class="gallery-grid">
-      <img src="art1.jpg" class="gallery-img" alt="Artwork 1" />
-      <img src="art2.jpg" class="gallery-img" alt="Artwork 2" />
-      <img src="art3.jpg" class="gallery-img" alt="Artwork 3" />
+      <img src="1.jpg" alt="Œuvre 1" class="gallery-img" />
+      <img src="2.jpg" alt="Œuvre 2" class="gallery-img" />
+      <img src="3.jpg" alt="Œuvre 3" class="gallery-img" />
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact" class="contact fade-in">
     <h3 data-fr="Contact" data-en="Contact">Contact</h3>
+    <p 
+      data-fr="Vous pouvez me contacter par email ou sur Instagram :" 
+      data-en="You can contact me by email or Instagram:">
+      Vous pouvez me contacter par email ou sur Instagram :
+    </p>
     <p>
-      📧 Email: <a href="mailto:zoubairimane14@gmail.com">zoubairimane14@gmail.com</a><br />
-      📸 Instagram: <a href="https://instagram.com/eman_zoubair" target="_blank">@eman_zoubair</a>
+      📧 <a href="mailto:zoubairimane14@gmail.com">zoubairimane14@gmail.com</a><br>
+      📸 <a href="https://instagram.com/eman_zoubair" target="_blank">@eman_zoubair</a>
     </p>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Imane Zoubair. Tous droits réservés.
+    <p>© 2025 Imane Zoubair. Tous droits réservés.</p>
   </footer>
 
-  <!-- Scroll to Top -->
-  <button id="topBtn" title="Go to top">↑</button>
-
-  <!-- Image Modal -->
+  <!-- Modal for image preview -->
   <div id="imgModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg" />
   </div>
 
+  <!-- Scroll to Top Button -->
+  <button id="topBtn" title="Retour en haut">↑</button>
+
   <script src="script.js"></script>
 </body>
 </html>
+
+
