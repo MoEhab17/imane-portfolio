@@ -86,7 +86,7 @@ themeToggle.addEventListener("click", () => {
   setTheme(isDark ? "light" : "dark");
 });
 
-//----filter gallery images----
+// === Filter Gallery Images ===
 const filterButtons = document.querySelectorAll('.filter-btn');
 const galleryImages = document.querySelectorAll('.gallery-img');
 
